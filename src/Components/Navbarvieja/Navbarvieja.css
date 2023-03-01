@@ -1,0 +1,87 @@
+  body {
+    background-color: black;
+  }
+ 
+  .menu {
+    background-color: black;
+    font-family: sans-serif;
+    font-size: 20px;
+  }
+  .menu__logo {
+    height: 45px;
+  }
+  .menu a {
+    text-decoration: none;
+    color: white;
+  }
+ 
+  .menu p {
+    padding: 5px;
+    color: white;
+    font-size: 30px;
+  }
+
+  .desplegable{
+    color: black !important;
+  }
+  
+ 
+  
+  /* #footer {
+    background-color: white;
+    text-align: center;
+    color: gray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  #footer .redessociales {
+    display: inline;
+  }
+  #footer .redessociales a {
+    color: gray;
+  }
+  #footer .redessociales a:hover {
+    color: orangeRed;
+  }
+  #footer .redessociales i {
+    padding-inline: 5px;
+  }
+  
+  .botones {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: orangeRed;
+    color: white;
+    font-family: sans-serif;
+  }
+  .botones:hover {
+    background-color: grey !important;
+    color: orangered !important;
+  }
+  
+  .botones2 {
+    margin-top: 10px;
+    background-color: orangeRed;
+    color: white;
+    font-family: sans-serif;
+  }
+  .botones2:hover {
+    background-color: grey !important;
+    color: orangered !important;
+  }
+  
+  .botones3 {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgb(26, 214, 26);
+    color: white;
+    font-family: sans-serif;
+  }
+  .botones3:hover {
+    background-color: white !important;
+    color: rgb(26, 214, 26) !important;
+  }
+  
+  .titulos {
+    color: orangeRed;
+  } */

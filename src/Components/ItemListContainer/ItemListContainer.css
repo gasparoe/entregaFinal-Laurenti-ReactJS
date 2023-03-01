@@ -1,0 +1,13 @@
+.itemListContainer {
+    display: flex;
+    font-family: sans-serif;
+    color: white;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1 {
+    font-size: 30px;
+}

@@ -1,0 +1,19 @@
+.footer {
+    background-color: white;
+    text-align: center;
+    color: gray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+.redessociales {
+    display: inline;
+  }
+.redessociales a {
+    color: gray;
+  }
+.redessociales a:hover {
+    color: orangeRed;
+  }
+.redessociales i {
+    padding-inline: 5px;
+  }
