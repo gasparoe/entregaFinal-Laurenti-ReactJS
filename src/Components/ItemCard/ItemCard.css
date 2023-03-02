@@ -1,0 +1,19 @@
+
+.card img {
+height: 400px;
+object-fit: contain;
+}
+
+.card h5{
+    height: 50px;
+    text-overflow: ellipsis;
+    white-space: inherit;
+    overflow: hidden;
+}
+
+.card p {
+    height: 100px;
+    text-overflow: ellipsis;
+    white-space: inherit;
+    overflow: hidden;
+}

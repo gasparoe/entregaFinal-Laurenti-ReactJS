@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Navbar from "./Components/Navbar/Navbar";
+import Footer from "./Components/Footer/Footer";
+import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
+import ItemDetail from "./Components/ItemDetail/ItemDetail";
+import SearchProduct from "./Components/SearchProduct/SearchProduct";
+import Carrito from "./Components/Carrito/Carrito";
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
-function App() {
+const App = () => {
+
+
+  const [carrito, setCarrito] = useState([])
+
+  const agregarCarrito = (item) => {
+    setCarrito([...carrito,item])
+    Toastify({
+
+      text: "Producto agregado al carrito",
+      
+      duration: 3000,
+      style: {
+        background: "linear-gradient(to right, #EE1A1A, #EE6E1A)",
+      },
+      
+      }).showToast();
+  }
+
+  const vaciarCarrito = () => {
+    setCarrito([])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar cantidadCarrito={carrito.length}/>
+      <Routes>
+        <Route exact path="/" element={<ItemListContainer />}></Route>
+        <Route
+          exact
+          path="/category/:idCategoria"
+          element={<ItemListContainer />}
+        ></Route>
+        <Route exact path="/item/:id" element={<ItemDetail agregar={agregarCarrito} />}></Route>
+        <Route exact path="/search/:name" element={<SearchProduct />}></Route>
+        <Route exact path="/carrito" element={<Carrito carrito = {carrito} vaciar={vaciarCarrito} />}></Route>
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

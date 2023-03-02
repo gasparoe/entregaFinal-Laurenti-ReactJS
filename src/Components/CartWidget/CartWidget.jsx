@@ -1,14 +1,15 @@
 import React from 'react'
 import './CartWidget.css';
 import shoppingicon from './shopping-icon.png';
+import { Link } from 'react-router-dom'
 
-const CartWidget = () => {
+const CartWidget = ({cantidadCarrito}) => {
     return (
         <div class="cartWidget">
-            <a href="./index.html"><img class="shopping_logo" src={shoppingicon}
+            <Link to={'/carrito'} ><img class="shopping_logo" src={shoppingicon}
                 alt="shopping_icon" />
-            </a>
-            <div class="cantidadCarrito">15</div>
+            </Link>
+            <div class="cantidadCarrito">{cantidadCarrito}</div>
         </div>
 
 
