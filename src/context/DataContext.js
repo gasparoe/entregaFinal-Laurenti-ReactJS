@@ -18,8 +18,9 @@ export function DataProvider({ children }) {
           if(snapshot !== null){
             let productos = []
             snapshot.docs.map((doc) => {
-              console.log(doc.data())
-              productos.push(doc.data())
+              let objeto = doc.data()
+              objeto.id = doc.id
+              productos.push(objeto)
             })
             setData(productos)
             setObtainData(false);

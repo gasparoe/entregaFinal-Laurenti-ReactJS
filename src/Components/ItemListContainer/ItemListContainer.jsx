@@ -4,6 +4,7 @@ import ItemCard from '../ItemCard/ItemCard'
 import { dataProductos } from "../../dataProductos";
 import { useParams } from 'react-router-dom';
 import { dataContext } from "../../context/DataContext";
+import Loading from '../Loading/Loading';
 
 
 const ItemListContainer = () => {
@@ -30,6 +31,7 @@ const ItemListContainer = () => {
 
 
   return (
+    obtainData === false ?
     <div class="container text-center">
       <div class="row align-items-start">
         {productosFiltrados.map((value, index) => (
@@ -39,6 +41,8 @@ const ItemListContainer = () => {
         ))}
       </div>
     </div>
+    :
+    <Loading/>
   )
 }
 

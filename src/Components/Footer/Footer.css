@@ -1,8 +1,9 @@
 .footer {
+  height: 120px;
     background-color: white;
     text-align: center;
     color: gray;
-    padding-top: 20px;
+    padding-top: 0px;
     padding-bottom: 20px;
   }
 .redessociales {
