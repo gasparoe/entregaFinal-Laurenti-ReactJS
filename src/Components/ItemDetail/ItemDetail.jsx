@@ -5,8 +5,8 @@ import './ItemDetail.css';
 import { Rating } from '@mui/material'
 
 
- 
-const ItemDetail = ({agregar}) => {
+
+const ItemDetail = ({ agregar }) => {
 
     const { id } = useParams()
 
@@ -30,17 +30,16 @@ const ItemDetail = ({agregar}) => {
                         <h2 class="card-title text-center">{productosSeleccionado[0].title}</h2>
                         <h3 class="card-title text-center">${productosSeleccionado[0].price}</h3>
                         <p class="card-text text-center p-0 m-0">{productosSeleccionado[0].description}</p>
-                        {/* <Link to={`/item/${productosSeleccionado[0].id}`} class="btn btn-dark">Ver detalles</Link> */}
                         <div class="rating">
-                        <Rating name="half-rating-read" defaultValue={parseFloat(productosSeleccionado[0].rating.rate)} precision={0.1} readOnly />
-                        <h3>Rating: {productosSeleccionado[0].rating.rate}</h3>
-                        <h4>Opiniones: {productosSeleccionado[0].rating.count}</h4>
+                            <Rating name="half-rating-read" defaultValue={parseFloat(productosSeleccionado[0].rating.rate)} precision={0.1} readOnly />
+                            <h3>Rating: {productosSeleccionado[0].rating.rate}</h3>
+                            <h4>Opiniones: {productosSeleccionado[0].rating.count}</h4>
                         </div>
                         <div class="rating">
-                        <button class="btn btn-dark" onClick={() => {agregar(productosSeleccionado[0])}}>Agregar al carrito</button>
+                            <button class="btn btn-dark" onClick={() => { agregar(productosSeleccionado[0]) }}>Agregar al carrito</button>
                         </div>
-                        
-                        
+
+
                     </div>
                 </div>
             </div>

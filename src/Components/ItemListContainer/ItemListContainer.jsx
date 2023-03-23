@@ -1,24 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './ItemListContainer.css';
 import ItemCard from '../ItemCard/ItemCard'
 import { dataProductos } from "../../dataProductos";
 import { useParams } from 'react-router-dom';
+import { dataContext } from "../../context/DataContext";
+
 
 const ItemListContainer = () => {
 
-  const {idCategoria} = useParams()
+  const { data, obtainData } = useContext(dataContext);
 
-  console.log(idCategoria)
+  const { idCategoria } = useParams()
 
   let productos = [];
   let productosFiltrados = [];
 
-  dataProductos.forEach((element) => {
+  data.forEach((element) => {
     productos.push(element);
   });
 
+  console.log(data)
+  console.log(obtainData)
 
-  if (idCategoria !== undefined){
+  if (idCategoria !== undefined) {
     productosFiltrados = productos.filter(producto => producto.category === idCategoria)
   } else {
     productosFiltrados = productos

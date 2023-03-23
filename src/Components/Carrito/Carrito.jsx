@@ -9,10 +9,9 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography'
 
 const Carrito = ({ carrito, vaciar }) => {
-    console.log(carrito)
     return (
         <div class="listaCarrito">
-            <List sx={{ bgcolor: 'background.paper', marginY: '10px', marginX: '20px', borderRadius: '20px'}}>
+            <List sx={{ bgcolor: 'background.paper', marginY: '10px', marginX: '20px', borderRadius: '20px' }}>
                 {carrito.map((value, index) => (
                     <div key={index} class="">
                         <ListItem alignItems="flex-start">
@@ -40,11 +39,11 @@ const Carrito = ({ carrito, vaciar }) => {
                     </div>
 
                 ))}
-                
-                
+
+
             </List>
-                <button class="btn btn-danger" onClick={() => {vaciar()}}>Vaciar carrito</button>
-                
+            <button class="btn btn-danger" onClick={() => { vaciar() }}>Vaciar carrito</button>
+
         </div>
 
     )
