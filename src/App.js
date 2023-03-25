@@ -8,29 +8,13 @@ import SearchProduct from "./Components/SearchProduct/SearchProduct";
 import Carrito from "./Components/Carrito/Carrito";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
+import CompraRealizada from "./Components/CompraRealizada/CompraRealizada";
 
 const App = () => {
-  const [carrito, setCarrito] = useState([]);
-
-  const agregarCarrito = (item) => {
-    setCarrito([...carrito, item]);
-    Toastify({
-      text: "Producto agregado al carrito",
-
-      duration: 3000,
-      style: {
-        background: "linear-gradient(to right, #EE1A1A, #EE6E1A)",
-      },
-    }).showToast();
-  };
-
-  const vaciarCarrito = () => {
-    setCarrito([]);
-  };
 
   return (
     <BrowserRouter>
-      <Navbar cantidadCarrito={carrito.length} />
+      <Navbar/>
       <Routes>
         <Route exact path="/" element={<ItemListContainer />}></Route>
         <Route
@@ -41,13 +25,18 @@ const App = () => {
         <Route
           exact
           path="/item/:id"
-          element={<ItemDetail agregar={agregarCarrito} />}
+          element={<ItemDetail/>}
         ></Route>
         <Route exact path="/search/:name" element={<SearchProduct />}></Route>
         <Route
           exact
           path="/carrito"
-          element={<Carrito carrito={carrito} vaciar={vaciarCarrito} />}
+          element={<Carrito/>}
+        ></Route>
+        <Route
+          exact
+          path="/compraRealizada/:idCompra"
+          element={<CompraRealizada/>}
         ></Route>
       </Routes>
       <Footer />

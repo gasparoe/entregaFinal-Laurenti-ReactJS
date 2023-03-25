@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import './ItemListContainer.css';
 import ItemCard from '../ItemCard/ItemCard'
-import { dataProductos } from "../../dataProductos";
+
 import { useParams } from 'react-router-dom';
 import { dataContext } from "../../context/DataContext";
 import Loading from '../Loading/Loading';
@@ -32,10 +32,10 @@ const ItemListContainer = () => {
 
   return (
     obtainData === false ?
-    <div class="container text-center">
-      <div class="row align-items-start">
+    <div className="container text-center">
+      <div className="row align-items-start">
         {productosFiltrados.map((value, index) => (
-          <div class="col-lg-4 col-md-6">
+          <div key={index} className="col-lg-4 col-md-6">
             <ItemCard key={value.id} producto={value} />
           </div>
         ))}

@@ -22,7 +22,7 @@ const CartWidget = ({ cantidadCarrito }) => {
 
 
     return (
-        <div class="cartWidget">
+        <div className="cartWidget">
             <Link to={'/carrito'}>
             <IconButton aria-label="cart">
                 <StyledBadge badgeContent={cantidadCarrito} color="warning">
@@ -30,10 +30,6 @@ const CartWidget = ({ cantidadCarrito }) => {
                 </StyledBadge>
             </IconButton>
             </Link>
-            {/* <Link to={'/carrito'} ><img class="shopping_logo" src={shoppingicon}
-                alt="shopping_icon" />
-            </Link>
-            <div class="cantidadCarrito">{cantidadCarrito}</div> */}
         </div>
 
 

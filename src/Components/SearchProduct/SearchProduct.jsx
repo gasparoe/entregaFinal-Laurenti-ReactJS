@@ -1,38 +1,21 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { useParams } from 'react-router-dom';
 import ItemCard from '../ItemCard/ItemCard'
-import { dataProductos } from "../../dataProductos";
-import { db } from "../../firebase";
 import { doc, getDoc, setDoc, addDoc, collection } from 'firebase/firestore'
+import { dataContext } from "../../context/DataContext";
 
 const SearchProduct = () => {
 
-  const orderCollection = collection(db,'items')
+  const { data, obtainData } = useContext(dataContext);
 
   const { name } = useParams()
 
   let productos = [];
   let productosFiltrados = [];
 
-  const agregarproducto = () => {
-    dataProductos.forEach((element) => {
 
-      const item = {
-        category: element.category,
-        description: element.description,
-        image: element.image,
-        price: element.price,
-        rating: element.rating,
-        title: element.title
-      }
-      
-      addDoc(orderCollection,item)
-        
-      
-    })
-  }
 
-  dataProductos.forEach((element) => {
+  data.forEach((element) => {
     productos.push(element);
   });
 
@@ -52,7 +35,6 @@ const SearchProduct = () => {
           </div>
         ))}
       </div>
-      <button style={{height:'50px', width:'100px'}} onClick={agregarproducto}></button>
     </div>
   )
 }

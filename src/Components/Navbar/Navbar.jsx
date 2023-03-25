@@ -1,15 +1,15 @@
-
+import React, {useContext} from 'react'
 import './Navbar.css';
 import logo from './logo.png';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
-
+import { dataContext } from "../../context/DataContext";
 
 
 const Navbarvieja = ({ cantidadCarrito }) => {
 
-    
+    const { carrito, vaciarCarrito } = useContext(dataContext);
 
 
     const [search, setSearch] = useState('')
@@ -20,7 +20,9 @@ const Navbarvieja = ({ cantidadCarrito }) => {
     }
 
     const handleChange = (e) => {
+        
         setSearch(e.target.value.toLowerCase())
+        
     }
 
 
@@ -31,8 +33,8 @@ const Navbarvieja = ({ cantidadCarrito }) => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark menu">
                 <div className="container-fluid">
-                    <Link className="navbar-brand p-2" ><Link to={'/'}><img className="menu__logo" src={logo}
-                        alt="logo_menu" /></Link></Link>
+                    <Link to={'/'} className="navbar-brand p-2" ><img className="menu__logo" src={logo}
+                        alt="logo_menu" /></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +70,7 @@ const Navbarvieja = ({ cantidadCarrito }) => {
 
                         </form>
 
-                        <CartWidget cantidadCarrito={cantidadCarrito} />
+                        <CartWidget cantidadCarrito={carrito.length} />
 
 
                     </div>
