@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { db } from "../firebase";
-import { collection, docs, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 
