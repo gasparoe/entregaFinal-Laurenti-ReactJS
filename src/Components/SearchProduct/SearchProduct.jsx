@@ -1,7 +1,6 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemCard from '../ItemCard/ItemCard'
-import { doc, getDoc, setDoc, addDoc, collection } from 'firebase/firestore'
 import { dataContext } from "../../context/DataContext";
 
 const SearchProduct = () => {

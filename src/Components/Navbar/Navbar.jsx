@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import './Navbar.css';
 import logo from './logo.png';
 import CartWidget from '../CartWidget/CartWidget';
@@ -20,13 +20,10 @@ const Navbarvieja = ({ cantidadCarrito }) => {
     }
 
     const handleChange = (e) => {
-        
+
         setSearch(e.target.value.toLowerCase())
-        
+
     }
-
-
-
 
 
     return (

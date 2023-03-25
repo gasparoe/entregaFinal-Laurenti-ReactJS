@@ -16,8 +16,8 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import { db } from "../../firebase";
-import { collection, docs, getDocs, addDoc } from "firebase/firestore";
-import {useNavigate} from 'react-router-dom';
+import { collection, addDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 
 
 const Carrito = () => {
@@ -50,7 +50,9 @@ const Carrito = () => {
     });
 
 
-    const realizarCompra= () => {
+    const realizarCompra = () => {
+
+        const fechaCompra = new Date()
 
         const orden = {
             comprador: {
@@ -60,17 +62,17 @@ const Carrito = () => {
                 email: email
             },
             items: carrito,
-            total: total
+            total: total,
+            fecha: fechaCompra
         }
 
-        if( nombre !== '' && apellido !== '' && telefono !== '' && email !== '' && email === email2){
+        if (nombre !== '' && apellido !== '' && telefono !== '' && email !== '' && email === email2) {
             addDoc(ordersCollection, orden)
-            .then((docRef) => {
-                console.log('id de la orden', docRef.id)
-                handleClose()
-                vaciarCarrito()
-                navigate(`/compraRealizada/${docRef.id}`)          
-            })    
+                .then((docRef) => {
+                    handleClose()
+                    vaciarCarrito()
+                    navigate(`/compraRealizada/${docRef.id}`)
+                })
         }
 
 
@@ -126,36 +128,36 @@ const Carrito = () => {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle textAlign="center">Detalle de compra</DialogTitle>
                 <DialogContent>
-                    <List sx={{ bgcolor: 'background.paper', marginY: '10px', marginX: '20px', borderRadius: '20px', textAlign:'center' }}>
-                {carrito.map((value, index) => (
-                    <div key={index} className="">
-                        <ListItem alignItems="flex-center">
-                            <ListItemAvatar>
-                                <Avatar alt={value.title} src={value.image} />
-                            </ListItemAvatar>
-                            <ListItemText
-                                primary={value.title}
-                            />
-                        </ListItem>
-                        <Typography style={{ fontSize: '16px', fontWeight: 'bold' }}
+                    <List sx={{ bgcolor: 'background.paper', marginY: '10px', marginX: '20px', borderRadius: '20px', textAlign: 'center' }}>
+                        {carrito.map((value, index) => (
+                            <div key={index} className="">
+                                <ListItem alignItems="flex-center">
+                                    <ListItemAvatar>
+                                        <Avatar alt={value.title} src={value.image} />
+                                    </ListItemAvatar>
+                                    <ListItemText
+                                        primary={value.title}
+                                    />
+                                </ListItem>
+                                <Typography style={{ fontSize: '16px', fontWeight: 'bold' }}
+                                    variant="body1"
+                                    color="text.primary"
+                                >
+                                    {value.cantidad} Unidades - ${value.price * value.cantidad}
+                                </Typography>
+                                <Divider variant="inset" component="li" />
+                            </div>
+
+                        ))}
+
+                        <Typography style={{ fontSize: '18px', fontWeight: 'bold', padding: '10px' }}
                             variant="body1"
                             color="text.primary"
                         >
-                            {value.cantidad} Unidades - ${value.price * value.cantidad}
+                            {total !== 0 ? `Total = ${total}` : `La orden esta vacia`}
                         </Typography>
-                        <Divider variant="inset" component="li" />
-                    </div>
-
-                ))}
-
-                <Typography style={{ fontSize: '18px', fontWeight: 'bold', padding: '10px' }}
-                    variant="body1"
-                    color="text.primary"
-                >
-                    {total !== 0 ? `Total = ${total}` : `La orden esta vacia`}
-                </Typography>
-            </List>
-            <DialogContentText style={{textAlign:'center'}}>
+                    </List>
+                    <DialogContentText style={{ textAlign: 'center' }}>
                         Complete sus datos personales
                     </DialogContentText>
                     <TextField
@@ -197,7 +199,7 @@ const Carrito = () => {
                         variant="standard"
                         error={telefono === '' ? true : false}
                     />
-                     <TextField
+                    <TextField
                         autoFocus
                         onChange={(event) => {
                             setEmail(event.target.value);

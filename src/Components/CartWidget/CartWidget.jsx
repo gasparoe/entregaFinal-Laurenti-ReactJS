@@ -1,11 +1,9 @@
 import React from 'react'
 import './CartWidget.css';
-import shoppingicon from './shopping-icon.png';
 import { Link } from 'react-router-dom'
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocalGroceryStoreTwoToneIcon from '@mui/icons-material/LocalGroceryStoreTwoTone';
 
 const CartWidget = ({ cantidadCarrito }) => {
@@ -24,11 +22,11 @@ const CartWidget = ({ cantidadCarrito }) => {
     return (
         <div className="cartWidget">
             <Link to={'/carrito'}>
-            <IconButton aria-label="cart">
-                <StyledBadge badgeContent={cantidadCarrito} color="warning">
-                    <LocalGroceryStoreTwoToneIcon color='warning' fontSize='large' />
-                </StyledBadge>
-            </IconButton>
+                <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={cantidadCarrito} color="warning">
+                        <LocalGroceryStoreTwoToneIcon color='warning' fontSize='large' />
+                    </StyledBadge>
+                </IconButton>
             </Link>
         </div>
 

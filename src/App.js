@@ -6,7 +6,6 @@ import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
 import ItemDetail from "./Components/ItemDetail/ItemDetail";
 import SearchProduct from "./Components/SearchProduct/SearchProduct";
 import Carrito from "./Components/Carrito/Carrito";
-import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 import CompraRealizada from "./Components/CompraRealizada/CompraRealizada";
 
