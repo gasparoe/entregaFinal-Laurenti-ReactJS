@@ -131,7 +131,7 @@ const Carrito = () => {
                     <List sx={{ bgcolor: 'background.paper', marginY: '10px', marginX: '20px', borderRadius: '20px', textAlign: 'center' }}>
                         {carrito.map((value, index) => (
                             <div key={index} className="">
-                                <ListItem alignItems="flex-center">
+                                <ListItem alignItems="flex-start">
                                     <ListItemAvatar>
                                         <Avatar alt={value.title} src={value.image} />
                                     </ListItemAvatar>

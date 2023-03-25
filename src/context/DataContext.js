@@ -12,13 +12,12 @@ export function DataProvider({ children }) {
   const [carrito, setCarrito] = useState([]);
 
   const agregarCarrito = (item, cantidad) => {
-    console.log(item);
+
 
     const productoEnCarrito = carrito.find(
       (producto) => producto.id === item.id
     );
     if (productoEnCarrito) {
-      console.log("ya existo agrego cantidad");
       productoEnCarrito.cantidad = productoEnCarrito.cantidad + cantidad;
     } else {
       item.cantidad = cantidad;
